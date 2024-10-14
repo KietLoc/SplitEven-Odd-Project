@@ -1,20 +1,42 @@
-// SplitEven-Odd Project.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 
 #include <iostream>
+#include "unorderedLinkedList.h"
+#include "intLinkedList.h" // Your custom intLinkedList class
 
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+
+int main() {
+    intLinkedList originalList, evensList, oddsList;
+    int num;
+
+    // Input numbers into the original list
+    cout << "Enter integers ending with -999" << endl;
+    cin >> num;
+    while (num != -999) {
+        originalList.insertLast(num);
+        cin >> num;
+    }
+
+    // Print the original list (which should now be empty)
+    cout << "list: ";
+    for (linkedListIterator<int> it = originalList.begin(); it != originalList.end(); ++it)
+        cout << *it << " ";
+    cout << endl;
+
+    // Split the original list into evens and odds
+    originalList.splitEvensOddsList(evensList, oddsList);
+
+    // Print the even numbers list
+    cout << "evensList: ";
+    for (linkedListIterator<int> it = evensList.begin(); it != evensList.end(); ++it)
+        cout << *it << " ";
+    cout << endl;
+
+    // Print the odd numbers list
+    cout << "oddsList: ";
+    for (linkedListIterator<int> it = oddsList.begin(); it != oddsList.end(); ++it)
+        cout << *it << " ";
+    cout << endl;
+
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

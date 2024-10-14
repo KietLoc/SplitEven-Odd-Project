@@ -107,8 +107,7 @@ void unorderedLinkedList<Type>::deleteNode(const Type& deleteItem)
 		else //search the list for the node with the given info
 		{
 			found = false;
-			trailCurrent = this->first; //set trailCurrent to point to the first
-			node
+			trailCurrent = this->first; //set trailCurrent to point to the first node
 				current = this->first->link; //set current to point to the second node
 			while (current != nullptr && !found)
 			{
